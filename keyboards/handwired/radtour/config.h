@@ -13,6 +13,7 @@
 
 /* power settings */
 #define USB_MAX_POWER_CONSUMPTION 100
+#define USB_POLLING_INTERVAL_MS 10
 
 /* key matrix size */
 #define MATRIX_ROWS 6
@@ -48,6 +49,11 @@
 
 /* prevent stuck modifiers */
 #define PREVENT_STUCK_MODIFIERS
+
+/* auto-shift */
+#define AUTO_SHIFT_TIMEOUT 150
+#define NO_AUTO_SHIFT_SPECIAL
+#define NO_AUTO_SHIFT_NUMERIC
 
 #ifdef RGB_DI_PIN
 #    define RGBLIGHT_ANIMATIONS
