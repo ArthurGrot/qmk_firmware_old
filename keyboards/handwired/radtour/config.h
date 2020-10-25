@@ -7,12 +7,12 @@
 #define VENDOR_ID 0xFEED
 #define PRODUCT_ID 0x6060
 #define DEVICE_VER 0x0001
-#define MANUFACTURER qmkbuilder
-#define PRODUCT Arthur_Tastatur
+#define MANUFACTURER Arthur Grot
+#define PRODUCT Arthurs Keyboard
 #define DESCRIPTION DIY Keyboard
 
 /* power settings */
-#define USB_MAX_POWER_CONSUMPTION 100
+#define USB_MAX_POWER_CONSUMPTION 500
 #define USB_POLLING_INTERVAL_MS 10
 
 /* key matrix size */
@@ -29,10 +29,20 @@
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
-/* number of backlight levels */
+/* RGB Backlight Configuration */
 
-#ifdef BACKLIGHT_PIN
-#    define BACKLIGHT_LEVELS 0
+#define RGB_DI_PIN D0
+#ifdef RGB_DI_PIN
+    #define RGBLED_NUM 23
+    #define RGBLIGHT_LIMIT_VAL 150
+    #define RGBLIGHT_HUE_STEP 15
+    #define RGBLIGHT_SAT_STEP 25
+    #define RGBLIGHT_VAL_STEP 25
+    #define RGBLIGHT_EFFECT_BREATHING
+    #define RGBLIGHT_EFFECT_RAINBOW_MOOD
+    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+    #define RGBLIGHT_EFFECT_STATIC_GRADIENT
+    #define RGBLIGHT_EFFECT_TWINKLE
 #endif
 
 /* Set 0 if debouncing isn't needed */
@@ -49,18 +59,5 @@
 
 /* prevent stuck modifiers */
 #define PREVENT_STUCK_MODIFIERS
-
-/* auto-shift */
-#define AUTO_SHIFT_TIMEOUT 150
-#define NO_AUTO_SHIFT_SPECIAL
-#define NO_AUTO_SHIFT_NUMERIC
-
-#ifdef RGB_DI_PIN
-#    define RGBLIGHT_ANIMATIONS
-#    define RGBLED_NUM 0
-#    define RGBLIGHT_HUE_STEP 8
-#    define RGBLIGHT_SAT_STEP 8
-#    define RGBLIGHT_VAL_STEP 8
-#endif
 
 #endif
