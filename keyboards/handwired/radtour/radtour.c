@@ -1,13 +1,13 @@
 #include "radtour.h"
 
-// void keyboard_pre_init_user(void) {
-// 	setPinOutput(D6);
-//     writePinHigh(D6);
-// }
+void keyboard_pre_init_user(void) {
+    setPinOutput(D6);
+    // writePinHigh(D6);
+}
 
 bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
-    if(res) {
+    if (res) {
         // writePin sets the pin high for 1 and low for 0.
         // In this example the pins are inverted, setting
         // it low/0 turns it on, and high/1 turns the LED off.
