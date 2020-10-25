@@ -6,7 +6,6 @@ import sys
 
 from milc import cli
 
-from . import c2json
 from . import cformat
 from . import compile
 from . import config
