@@ -599,7 +599,7 @@ void rgblight_sethsv_at(uint8_t hue, uint8_t sat, uint8_t val, uint8_t index) {
     rgblight_setrgb_at(tmp_led.r, tmp_led.g, tmp_led.b, index);
 }
 
-#if defined(RGBLIGHT_EFFECT_BREATHING) || defined(RGBLIGHT_EFFECT_RAINBOW_MOOD) || defined(RGBLIGHT_EFFECT_RAINBOW_SWIRL) || defined(RGBLIGHT_EFFECT_SNAKE) || defined(RGBLIGHT_EFFECT_KNIGHT)
+#if defined(RGBLIGHT_EFFECT_BREATHING) || defined(RGBLIGHT_EFFECT_RAINBOW_MOOD) || defined(RGBLIGHT_EFFECT_CONFETTI) || defined(RGBLIGHT_EFFECT_RAINBOW_SWIRL) || defined(RGBLIGHT_EFFECT_SNAKE) || defined(RGBLIGHT_EFFECT_KNIGHT)
 
 static uint8_t get_interval_time(const uint8_t *default_interval_address, uint8_t velocikey_min, uint8_t velocikey_max) {
     return
@@ -873,6 +873,13 @@ void rgblight_task(void) {
             effect_func   = rgblight_effect_knight;
         }
 #    endif
+#    ifdef RGBLIGHT_EFFECT_CONFETTI
+        else if (rgblight_status.base_mode == RGBLIGHT_MODE_CONFETTI) {
+            // confetti mode
+            interval_time = get_interval_time(&RGBLED_CONFETTI_INTERVALS[delta], 1, 100);
+            effect_func   = rgblight_effect_confetti;
+        }
+#    endif
 #    ifdef RGBLIGHT_EFFECT_CHRISTMAS
         else if (rgblight_status.base_mode == RGBLIGHT_MODE_CHRISTMAS) {
             // christmas mode
@@ -949,6 +956,15 @@ void rgblight_effect_breathing(animation_status_t *anim) {
 #    endif
     rgblight_sethsv_noeeprom_old(rgblight_config.hue, rgblight_config.sat, val);
     anim->pos = (anim->pos + 1);
+}
+#endif
+
+#ifdef RGBLIGHT_EFFECT_CONFETTI
+__attribute__((weak)) const uint8_t RGBLED_CONFETTI_INTERVALS[] PROGMEM = {120};
+
+void rgblight_effect_confetti(animation_status_t *anim) {
+    rgblight_sethsv_noeeprom_old(anim->current_hue, rgblight_config.sat, rgblight_config.val);
+    anim->current_hue++;
 }
 #endif
 

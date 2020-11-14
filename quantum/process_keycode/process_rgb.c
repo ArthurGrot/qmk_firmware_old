@@ -193,6 +193,11 @@ bool process_rgb(const uint16_t keycode, const keyrecord_t *record) {
                 rgblight_mode(RGBLIGHT_MODE_CHRISTMAS);
 #endif
                 return false;
+            case RGB_MODE_CONFETTI:
+#if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES) && defined( RGBLIGHT_EFFECT_CONFETTI)
+                rgblight_mode(RGBLIGHT_MODE_CONFETTI);
+#endif
+                return false;
             case RGB_MODE_GRADIENT:
 #if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES) && defined( RGBLIGHT_EFFECT_STATIC_GRADIENT)
                 handleKeycodeRGBMode(RGBLIGHT_MODE_STATIC_GRADIENT, RGBLIGHT_MODE_STATIC_GRADIENT_end);

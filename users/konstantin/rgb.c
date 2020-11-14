@@ -1,5 +1,9 @@
 #include "rgb.h"
 
+#ifdef RGBLIGHT_EFFECT_CONFETTI
+const uint8_t PROGMEM RGBLED_CONFETTI_INTERVALS[] = {20};
+#endif
+
 #ifdef RGBLIGHT_EFFECT_BREATHING
 const uint8_t PROGMEM RGBLED_BREATHING_INTERVALS[] = { 20, 30, 5, 10 };
 #endif

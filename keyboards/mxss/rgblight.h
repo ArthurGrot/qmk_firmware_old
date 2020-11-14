@@ -59,6 +59,7 @@
 |       34        | RGBLIGHT_MODE_STATIC_GRADIENT + 9 |
 |       35        | RGBLIGHT_MODE_RGB_TEST            |
 |       36        | RGBLIGHT_MODE_ALTERNATING         |
+|       37        | RGBLIGHT_MODE_CONFETTI            |
 |-----------------|-----------------------------------|
  *****/
 
@@ -73,6 +74,7 @@
 #    define RGBLIGHT_EFFECT_STATIC_GRADIENT
 #    define RGBLIGHT_EFFECT_RGB_TEST
 #    define RGBLIGHT_EFFECT_ALTERNATING
+#    define RGBLIGHT_EFFECT_CONFETTI
 #endif
 
 #ifdef RGBLIGHT_STATIC_PATTERNS
@@ -89,6 +91,7 @@
   || defined(RGBLIGHT_EFFECT_KNIGHT)        \
   || defined(RGBLIGHT_EFFECT_CHRISTMAS)     \
   || defined(RGBLIGHT_EFFECT_RGB_TEST)      \
+  || defined(RGBLIGHT_EFFECT_CONFETTI)      \
   || defined(RGBLIGHT_EFFECT_ALTERNATING)
 #    define RGBLIGHT_USE_TIMER
 #endif
@@ -343,6 +346,7 @@ typedef struct _animation_status_t {
 
 extern animation_status_t animation_status;
 
+void rgblight_effect_confetti(animation_status_t *anim);
 void rgblight_effect_breathing(animation_status_t *anim);
 void rgblight_effect_rainbow_mood(animation_status_t *anim);
 void rgblight_effect_rainbow_swirl(animation_status_t *anim);

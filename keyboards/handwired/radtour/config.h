@@ -7,6 +7,8 @@
 #define VENDOR_ID 0xFEED
 #define PRODUCT_ID 0x6060
 #define DEVICE_VER 0x0001
+#define RAW_USAGE_PAGE 0xFF60
+#define RAW_USAGE_ID 0x61
 #define MANUFACTURER Arthur Grot
 #define PRODUCT Arthurs Keyboard
 #define DESCRIPTION DIY Keyboard
@@ -43,6 +45,7 @@
     #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
     #define RGBLIGHT_EFFECT_STATIC_GRADIENT
     #define RGBLIGHT_EFFECT_TWINKLE
+    #define RGBLIGHT_EFFECT_CONFETTI
 #endif
 
 /* Set 0 if debouncing isn't needed */

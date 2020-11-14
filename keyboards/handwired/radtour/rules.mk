@@ -55,3 +55,4 @@ RGBLIGHT_ENABLE  ?= yes  # Enable keyboard rgb backlight functionality
 KEY_LOCK_ENABLE ?= yes
 WAIT_FOR_USB ?= yes
 VELOCIKEY_ENABLE ?= yes
+RAW_ENABLE ?= no

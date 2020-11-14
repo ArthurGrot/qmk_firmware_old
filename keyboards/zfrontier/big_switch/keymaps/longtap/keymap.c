@@ -39,6 +39,9 @@ void keyboard_post_init_user(void) {
 
 void zf_switch_rgb_mode(void) {
     switch (rgblight_get_mode() ) {
+        case RGBLIGHT_MODE_CONFETTI:
+            rgblight_mode_noeeprom(RGBLIGHT_MODE_CONFETTI);
+            break;
         case RGBLIGHT_MODE_BREATHING:
             rgblight_mode_noeeprom(RGBLIGHT_MODE_RAINBOW_MOOD);
             break;

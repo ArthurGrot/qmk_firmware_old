@@ -65,11 +65,13 @@
 |       40        | RGBLIGHT_MODE_TWINKLE + 3         |
 |       41        | RGBLIGHT_MODE_TWINKLE + 4         |
 |       42        | RGBLIGHT_MODE_TWINKLE + 5         |
+|       43        | RGBLIGHT_MODE_CONFETTI            |
 |-----------------|-----------------------------------|
  *****/
 
 #ifdef RGBLIGHT_ANIMATIONS
 // for backward compatibility
+#    define RGBLIGHT_EFFECT_CONFETTI
 #    define RGBLIGHT_EFFECT_BREATHING
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD
 #    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
@@ -90,6 +92,7 @@
 
 // check dynamic animation effects chose ?
 #if  defined(RGBLIGHT_EFFECT_BREATHING)     \
+  || defined(RGBLIGHT_EFFECT_CONFETTI)      \
   || defined(RGBLIGHT_EFFECT_RAINBOW_MOOD)  \
   || defined(RGBLIGHT_EFFECT_RAINBOW_SWIRL) \
   || defined(RGBLIGHT_EFFECT_SNAKE)         \
@@ -231,6 +234,7 @@ void rgblight_blink_layer(uint8_t layer, uint16_t duration_ms);
 
 extern LED_TYPE led[RGBLED_NUM];
 
+extern const uint8_t  RGBLED_CONFETTI_INTERVALS[1] PROGMEM;
 extern const uint8_t  RGBLED_BREATHING_INTERVALS[4] PROGMEM;
 extern const uint8_t  RGBLED_RAINBOW_MOOD_INTERVALS[3] PROGMEM;
 extern const uint8_t  RGBLED_RAINBOW_SWIRL_INTERVALS[3] PROGMEM;
@@ -422,6 +426,7 @@ typedef struct _animation_status_t {
 
 extern animation_status_t animation_status;
 
+void rgblight_effect_confetti(animation_status_t *anim);
 void rgblight_effect_breathing(animation_status_t *anim);
 void rgblight_effect_rainbow_mood(animation_status_t *anim);
 void rgblight_effect_rainbow_swirl(animation_status_t *anim);

@@ -70,7 +70,7 @@ const rgblight_segment_t *const PROGMEM _rgb_layers[] = {
     [ACK_OFFSET + ACK_MEH + 1] = NULL
 };
 
-// clang-format on 
+// clang-format on
 
 const uint8_t PROGMEM _n_rgb_layers = sizeof(_rgb_layers) / sizeof(_rgb_layers[0]) - 1;
 
@@ -108,6 +108,9 @@ void keyboard_post_init_user_rgb(void) {
         uint8_t old_mode   = rgblight_config.mode;
 
         bool ramp_down =
+#ifdef RGBLIGHT_EFFECT_CONFETTI
+             (rgblight_status.base_mode == RGBLIGHT_MODE_CONFETTI) ||
+#endif
 #ifdef RGBLIGHT_EFFECT_BREATHING
             (rgblight_status.base_mode == RGBLIGHT_MODE_BREATHING) ||
 #endif
